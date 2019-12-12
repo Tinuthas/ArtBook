@@ -14,6 +14,7 @@
 		831E29E1239EF57800E0B059 /* ArtBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 831E29DF239EF57800E0B059 /* ArtBook.xcdatamodeld */; };
 		831E29E3239EF57900E0B059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 831E29E2239EF57900E0B059 /* Assets.xcassets */; };
 		831E29E6239EF57900E0B059 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 831E29E4239EF57900E0B059 /* LaunchScreen.storyboard */; };
+		83E442DF23A2293A000C0EF3 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E442DE23A2293A000C0EF3 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		831E29E2239EF57900E0B059 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		831E29E5239EF57900E0B059 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		831E29E7239EF57900E0B059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83E442DE23A2293A000C0EF3 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				831E29D6239EF57800E0B059 /* AppDelegate.swift */,
 				831E29D8239EF57800E0B059 /* SceneDelegate.swift */,
 				831E29DA239EF57800E0B059 /* ViewController.swift */,
+				83E442DE23A2293A000C0EF3 /* DetailsViewController.swift */,
 				831E29DC239EF57800E0B059 /* Main.storyboard */,
 				831E29E2239EF57900E0B059 /* Assets.xcassets */,
 				831E29E4239EF57900E0B059 /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 				831E29D7239EF57800E0B059 /* AppDelegate.swift in Sources */,
 				831E29E1239EF57800E0B059 /* ArtBook.xcdatamodeld in Sources */,
 				831E29D9239EF57800E0B059 /* SceneDelegate.swift in Sources */,
+				83E442DF23A2293A000C0EF3 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +295,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6CJNM8AMYQ;
 				INFOPLIST_FILE = ArtBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +314,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6CJNM8AMYQ;
 				INFOPLIST_FILE = ArtBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
