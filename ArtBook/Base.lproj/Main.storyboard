@@ -47,8 +47,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sri-7y-XMx">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="select.png" translatesAutoresizingMaskIntoConstraints="NO" id="Sri-7y-XMx">
                                 <rect key="frame" x="20" y="113" width="374" height="337"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="337" id="Kug-CQ-Tl3"/>
+                                </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vbB-b8-YoW">
                                 <rect key="frame" x="20" y="478" width="374" height="34"/>
@@ -60,8 +63,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYX-44-2jy">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYX-44-2jy">
                                 <rect key="frame" x="141" y="641" width="132" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="txO-4a-mzf"/>
+                                </constraints>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveButtonClicked:" destination="MbB-Xe-au0" eventType="touchUpInside" id="a03-fe-Hoi"/>
@@ -76,16 +82,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Wm6-94-4Vd" firstAttribute="leading" secondItem="QFy-wf-iye" secondAttribute="leading" id="2JY-cD-ygO"/>
-                            <constraint firstItem="Wm6-94-4Vd" firstAttribute="leading" secondItem="Sri-7y-XMx" secondAttribute="leading" id="2jL-VJ-Vsq"/>
+                            <constraint firstItem="gYX-44-2jy" firstAttribute="centerX" secondItem="QFy-wf-iye" secondAttribute="centerX" id="6oI-sm-6BI"/>
+                            <constraint firstItem="gYX-44-2jy" firstAttribute="leading" secondItem="G1z-1T-DYQ" secondAttribute="leading" constant="141" id="FJv-5z-feT"/>
                             <constraint firstItem="Wm6-94-4Vd" firstAttribute="leading" secondItem="0y7-CD-ijK" secondAttribute="leadingMargin" id="GmD-2j-z5k"/>
+                            <constraint firstItem="Sri-7y-XMx" firstAttribute="top" secondItem="G1z-1T-DYQ" secondAttribute="top" constant="25" id="HzY-Wc-aZT"/>
+                            <constraint firstItem="gYX-44-2jy" firstAttribute="top" secondItem="QFy-wf-iye" secondAttribute="bottom" constant="20" id="IqL-Ui-Okc"/>
                             <constraint firstItem="Wm6-94-4Vd" firstAttribute="trailing" secondItem="QFy-wf-iye" secondAttribute="trailing" id="LqF-am-WG6"/>
                             <constraint firstItem="QFy-wf-iye" firstAttribute="top" secondItem="Wm6-94-4Vd" secondAttribute="bottom" constant="19" id="Q69-Bd-zji"/>
                             <constraint firstItem="Wm6-94-4Vd" firstAttribute="leading" secondItem="vbB-b8-YoW" secondAttribute="leading" id="RUL-Wg-5lo"/>
-                            <constraint firstItem="Wm6-94-4Vd" firstAttribute="centerX" secondItem="gYX-44-2jy" secondAttribute="centerX" id="Ryi-am-spX"/>
-                            <constraint firstItem="Wm6-94-4Vd" firstAttribute="trailing" secondItem="Sri-7y-XMx" secondAttribute="trailing" id="cAu-kv-BRt"/>
                             <constraint firstItem="Wm6-94-4Vd" firstAttribute="trailing" secondItem="vbB-b8-YoW" secondAttribute="trailing" id="dOy-ln-xaT"/>
                             <constraint firstItem="Wm6-94-4Vd" firstAttribute="top" secondItem="vbB-b8-YoW" secondAttribute="bottom" constant="22" id="eYb-1S-Toa"/>
                             <constraint firstItem="Wm6-94-4Vd" firstAttribute="trailing" secondItem="0y7-CD-ijK" secondAttribute="trailingMargin" id="gxB-ZC-hFC"/>
+                            <constraint firstItem="Sri-7y-XMx" firstAttribute="trailing" secondItem="vbB-b8-YoW" secondAttribute="trailing" id="jsv-bs-hHf"/>
+                            <constraint firstItem="Sri-7y-XMx" firstAttribute="leading" secondItem="vbB-b8-YoW" secondAttribute="leading" id="mUj-2h-ZO6"/>
                             <constraint firstAttribute="bottom" secondItem="Wm6-94-4Vd" secondAttribute="bottom" constant="328" id="tJP-aK-OCJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="G1z-1T-DYQ"/>
@@ -121,4 +130,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="select.png" width="264" height="300"/>
+    </resources>
 </document>
