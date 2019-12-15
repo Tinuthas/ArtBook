@@ -24,9 +24,38 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         if chosenPainting != "" {
             // Core Data
-            let stringUUID = chosenPaintingId!.uuidString
-            print(stringUUID)
-            
+            //let stringUUID = chosenPaintingId!.uuidString
+            //print(stringUUID)
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchResult = NSFetchRequest<NSFetchRequestResult>(entityName: "Painting")
+            let idString = chosenPaintingId?.uuidString
+            fetchResult.predicate = NSPredicate(format: "id = %@", idString!)
+            fetchResult.returnsObjectsAsFaults = false
+            do{
+                let results = try context.fetch(fetchResult)
+                if results.count > 0 {
+                    for result in results as! [NSManagedObject] {
+                        if let name = result.value(forKey: "name") as? String{
+                            nameText.text = name
+                        }
+                        
+                        if let artist = result.value(forKey: "artist") as? String{
+                                                   artistText.text = artist
+                                               }
+                        if let year = result.value(forKey: "year") as? Int{
+                            yearText.text = String(year)
+                        }
+                        
+                        if let imageData = result.value(forKey: "image") as? Data {
+                            let image = UIImage(data: imageData)
+                            imageView.image = image
+                        }
+                    }
+                }
+            }catch{
+                print(error.localizedDescription)
+            }
         }else {
             nameText.text = ""
             artistText.text = ""
