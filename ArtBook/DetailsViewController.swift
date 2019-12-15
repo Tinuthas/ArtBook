@@ -15,6 +15,7 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var artistText: UITextField!
     @IBOutlet weak var yearText: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     
     var chosenPainting = ""
     var chosenPaintingId: UUID?
@@ -23,6 +24,9 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         
         if chosenPainting != "" {
+            
+            //saveButton.isEnabled = false
+            saveButton.isHidden = true
             // Core Data
             //let stringUUID = chosenPaintingId!.uuidString
             //print(stringUUID)
@@ -57,6 +61,8 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
                 print(error.localizedDescription)
             }
         }else {
+            saveButton.isHidden = false
+            saveButton.isEnabled = false
             nameText.text = ""
             artistText.text = ""
             yearText.text = ""
@@ -70,9 +76,12 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
         let imageTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectImage))
         imageView.addGestureRecognizer(imageTapRecognizer)
         
+        
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        saveButton.isEnabled = true
         imageView.image = info[.originalImage] as? UIImage
         self.dismiss(animated: true, completion: nil)
     }

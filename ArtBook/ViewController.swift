@@ -59,6 +59,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc func addButtonClicked() {
+        selectedPainting = ""
+        selectedPaintingId = nil
         performSegue(withIdentifier: "toDetailsVC", sender: nil)
     }
     
