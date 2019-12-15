@@ -15,9 +15,58 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var artistText: UITextField!
     @IBOutlet weak var yearText: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
+    
+    var chosenPainting = ""
+    var chosenPaintingId: UUID?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if chosenPainting != "" {
+            
+            //saveButton.isEnabled = false
+            saveButton.isHidden = true
+            // Core Data
+            //let stringUUID = chosenPaintingId!.uuidString
+            //print(stringUUID)
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchResult = NSFetchRequest<NSFetchRequestResult>(entityName: "Painting")
+            let idString = chosenPaintingId?.uuidString
+            fetchResult.predicate = NSPredicate(format: "id = %@", idString!)
+            fetchResult.returnsObjectsAsFaults = false
+            do{
+                let results = try context.fetch(fetchResult)
+                if results.count > 0 {
+                    for result in results as! [NSManagedObject] {
+                        if let name = result.value(forKey: "name") as? String{
+                            nameText.text = name
+                        }
+                        
+                        if let artist = result.value(forKey: "artist") as? String{
+                                                   artistText.text = artist
+                                               }
+                        if let year = result.value(forKey: "year") as? Int{
+                            yearText.text = String(year)
+                        }
+                        
+                        if let imageData = result.value(forKey: "image") as? Data {
+                            let image = UIImage(data: imageData)
+                            imageView.image = image
+                        }
+                    }
+                }
+            }catch{
+                print(error.localizedDescription)
+            }
+        }else {
+            saveButton.isHidden = false
+            saveButton.isEnabled = false
+            nameText.text = ""
+            artistText.text = ""
+            yearText.text = ""
+        }
         
         // Recognizers
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -27,9 +76,12 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
         let imageTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectImage))
         imageView.addGestureRecognizer(imageTapRecognizer)
         
+        
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        saveButton.isEnabled = true
         imageView.image = info[.originalImage] as? UIImage
         self.dismiss(animated: true, completion: nil)
     }
